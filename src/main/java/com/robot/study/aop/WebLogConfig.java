@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -20,7 +21,7 @@ import java.util.Arrays;
 @Component
 public class WebLogConfig {
 
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+    private static Logger log = LoggerFactory.getLogger(WebLogConfig.class);
 
     /**
      * 切入点
@@ -46,6 +47,7 @@ public class WebLogConfig {
     @After("log()")
     public void doAfter(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        Assert.notNull(attributes, "ServletRequestAttributes 网络请求不存在");
         HttpServletRequest request = attributes.getRequest();
         String url = request.getRequestURL().toString();
         String ip = request.getRemoteAddr();

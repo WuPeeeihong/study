@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /study
+
+spring:
+  mail:
+    #smtp服务主机
+    host: smtp.189.cn
+    #服务协议
+    protocol: smtp
+    #编码集
+    default-encoding: UTF-8
+    #发送的邮箱账户信息
+    username: 18906889768@189.cn
+    #password 授权码
+    password: Tuanjie695@
+    test-connection: true

@@ -1,6 +1,8 @@
-package com.robot.study.bean.result;
+package com.robot.study.common;
 
 import com.robot.study.exception.MyException;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,16 +11,24 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@ApiModel(value = "消息返回结构体")
 public class Result<T> {
 
+    @ApiModelProperty("信息")
     private String message;
+
+    @ApiModelProperty("状态码")
     private int retCode;
+
+    @ApiModelProperty("返回对象信息")
     private T data;
+
     private Result(T data) {
         this.retCode = 0;
         this.message = "成功";
         this.data = data;
     }
+
     private Result(Integer code, String msg) {
         this.retCode = code;
         this.message = msg;

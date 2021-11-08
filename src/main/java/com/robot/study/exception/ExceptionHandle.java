@@ -1,6 +1,6 @@
 package com.robot.study.exception;
 
-import com.robot.study.bean.result.Result;
+import com.robot.study.common.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

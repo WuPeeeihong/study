@@ -1,7 +1,5 @@
 package com.robot.study.util;
 
-import com.robot.study.bean.result.Result;
-import com.robot.study.exception.MyException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;

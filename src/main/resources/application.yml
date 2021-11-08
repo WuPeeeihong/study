@@ -16,3 +16,11 @@ spring:
     #password 授权码
     password: Tuanjie695@
     test-connection: true
+  datasource:
+    name: test  #\库名称
+    #    url: jdbc:mysql://localhost:3306/man_power?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC #地址
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true #地址
+    username: root  #\账号
+    #    password: root  #\密码
+    password: 123456 #临时使用
+    driver-class-name: com.mysql.cj.jdbc.Driver

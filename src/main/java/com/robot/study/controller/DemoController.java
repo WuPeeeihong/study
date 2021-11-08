@@ -1,8 +1,9 @@
 package com.robot.study.controller;
 
 import com.robot.study.exception.MyException;
-import com.robot.study.bean.result.Result;
-import org.junit.jupiter.api.Test;
+import com.robot.study.common.Result;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
@@ -25,6 +26,7 @@ import java.io.File;
  */
 @RestController
 @RequestMapping("/test")
+@Api(tags = "测试路由")
 public class DemoController {
 
     @Value("${spring.mail.username}")
@@ -34,12 +36,14 @@ public class DemoController {
     private JavaMailSender mailSender;
 
     @PostMapping("/demo")
+    @ApiOperation(value = "测试自定义异常", notes = "测试自定义异常类和全局异常控制")
     public Result deTest(){
         throw new MyException(666, "出错误了");
     }
 
 
     @PostMapping("/email")
+    @ApiOperation(value = "发送简单邮件")
     public Result deTest2() {
         //创建简单邮件消息
         SimpleMailMessage message = new SimpleMailMessage();
@@ -61,6 +65,7 @@ public class DemoController {
     }
 
     @PostMapping("/email2")
+    @ApiOperation(value = "发送邮件",notes = "发送带图片和附件的邮件")
     public Result deTest3() {
         //创建带图片和附件邮件消息
         MimeMessage message = mailSender.createMimeMessage();
@@ -84,5 +89,7 @@ public class DemoController {
             return Result.error(new MyException(999, "普通邮件方失败"));
         }
     }
+
+
 
 }

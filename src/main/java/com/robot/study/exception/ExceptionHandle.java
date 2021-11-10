@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @description:
+ * @description: 统一异常处理类
  * @author: wph
  * @time: 2021/11/8
  */

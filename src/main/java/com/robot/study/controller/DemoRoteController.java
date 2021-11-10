@@ -1,7 +1,8 @@
 package com.robot.study.controller;
 
-import com.robot.study.exception.MyException;
+
 import com.robot.study.common.Result;
+import com.robot.study.exception.MyException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.MessagingException;
@@ -20,14 +22,17 @@ import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 /**
- * @description:
- * @author: wph
- * @time: 2021/11/8
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author Wuph
+ * @since 2021-11-10
  */
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/study/demo")
 @Api(tags = "测试路由")
-public class DemoController {
+public class DemoRoteController {
 
     @Value("${spring.mail.username}")
     private String from;

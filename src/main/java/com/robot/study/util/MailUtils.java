@@ -19,8 +19,12 @@ import java.util.List;
 public class MailUtils {
 
     //发送者邮箱地址
-    @Value("${spring.mail.username}")
     private static String from;
+
+    @Value("${spring.mail.username}")
+    public static void setFrom(String from) {
+        MailUtils.from = from;
+    }
 
     /**
      * 简单文本邮件发送

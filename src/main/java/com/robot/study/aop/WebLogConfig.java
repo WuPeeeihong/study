@@ -1,5 +1,7 @@
 package com.robot.study.aop;
 
+import com.robot.study.util.IpUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -19,9 +21,8 @@ import java.util.Arrays;
  */
 @Aspect
 @Component
+@Slf4j
 public class WebLogConfig {
-
-    private static Logger log = LoggerFactory.getLogger(WebLogConfig.class);
 
     /**
      * 切入点
@@ -50,7 +51,7 @@ public class WebLogConfig {
         Assert.notNull(attributes, "ServletRequestAttributes 网络请求不存在");
         HttpServletRequest request = attributes.getRequest();
         String url = request.getRequestURL().toString();
-        String ip = request.getRemoteAddr();
+        String ip = IpUtils.getIpAddr(request);
         String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
         RequestMethod requestLog = new RequestMethod(url, ip, classMethod, args);

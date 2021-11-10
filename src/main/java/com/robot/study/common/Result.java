@@ -8,6 +8,7 @@ import lombok.Data;
 
 /**
  * 定义 RESTFul 返回 JSON 数据的消息类
+ * @author lsxy
  */
 @Data
 @AllArgsConstructor

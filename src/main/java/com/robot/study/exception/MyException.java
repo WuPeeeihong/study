@@ -42,8 +42,4 @@ public class MyException extends RuntimeException{
     public static MyException JPG_UPLOAD_FAILED = new MyException(501101,"图片上传失败");
     public static MyException FILE_UPLOAD_FAILED = new MyException(501101,"图片上传失败");
 
-    public String getMessage(){
-        return this.message;
-    }
-
 }

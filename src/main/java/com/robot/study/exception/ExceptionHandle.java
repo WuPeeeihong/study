@@ -1,6 +1,7 @@
 package com.robot.study.exception;
 
 import com.robot.study.common.Result;
+import org.apache.shiro.authc.AccountException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -55,6 +56,16 @@ public class ExceptionHandle {
         logger.error(request.getRequestURI() + ":服务运行异常",e);
         return Result.error(new MyException(HttpStatus.INTERNAL_SERVER_ERROR.value(),"服务运行异常"));
 
+    }
+
+    /**
+     * 捕捉 CustomRealm 抛出的异常
+     * @param ex
+     * @return
+     */
+    @ExceptionHandler(AccountException.class)
+    public Result handleShiroException(Exception ex) {
+        return Result.error(new MyException(1001, ex.getMessage()));
     }
 
     /**

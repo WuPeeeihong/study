@@ -72,6 +72,17 @@
             </exclusions>
             <version>4.4.0</version>
         </dependency>
+<!--        thymeleaf依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <exclusions><!-- 去掉springboot默认配置 -->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <!--        WebSocket消息推送-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -83,18 +94,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- shiro -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.shiro</groupId>-->
-<!--            <artifactId>shiro-spring-boot-starter</artifactId>-->
-<!--            <exclusions>&lt;!&ndash; 去掉springboot默认配置 &ndash;&gt;-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.springframework.boot</groupId>-->
-<!--                    <artifactId>spring-boot-starter-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--            <version>1.5.3</version>-->
-<!--        </dependency>-->
         <!--        整合最新版 Mybatis-Plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -145,6 +144,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.7.0</version>
         </dependency>
         <!--        Mysql连接依赖-->
         <dependency>

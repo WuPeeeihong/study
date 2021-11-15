@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.fill.Column;
+import com.baomidou.mybatisplus.generator.fill.Property;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,13 +29,14 @@ public class MyGeneratorUtils {
 
     private static final String PASSWORD = "123456";
 
-//    public static void main(String[] args) {
-//        //需要生成的表
-//        List<String> tables = new ArrayList<>();
-//        tables.add("t_user");
-//
-//        createGenerator(tables, URL, USERNAME, PASSWORD, "t_");
-//    }
+    public static void main(String[] args) {
+        //需要生成的表
+        List<String> tables = new ArrayList<>();
+        tables.add("t_menu");
+//        tables.add("t_role");
+
+        createGenerator(tables, URL, USERNAME, PASSWORD, "t_");
+    }
 
     /**
      * 传入特定空间表，自动生成代码
@@ -77,8 +79,8 @@ public class MyGeneratorUtils {
                             .enableLombok()
                             .logicDeleteColumnName("deleted")
                             .enableTableFieldAnnotation()
-                            .addTableFills(new Column("create_time", FieldFill.INSERT))
-//                            .addTableFills(new Property("updateTime", FieldFill.INSERT_UPDATE))
+//                            .addTableFills(new Column("create_time", FieldFill.INSERT))
+//                            .addTableFills(new Property("modifyTime", FieldFill.INSERT_UPDATE))
                             .controllerBuilder()
                             .formatFileName("%sController")
                             .enableRestStyle()

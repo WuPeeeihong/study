@@ -21,7 +21,7 @@
 
         <console name="Console" target="SYSTEM_OUT">
             <!--输出日志的格式-->
-            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %highlight{%c{1.}.%M(%L)}: %msg%n" />
             <!--控制台只输出level及其以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
             <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
         </console>
@@ -153,4 +153,5 @@
             <appender-ref ref="druidSqlRollingFile"/>
         </root>
     </loggers>
+
 </configuration>
